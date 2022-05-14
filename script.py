@@ -20,7 +20,22 @@ damages = ['Damages not recorded', '100M', 'Damages not recorded', '40M', '27.9M
 deaths = [90,4000,16,3103,179,184,408,682,5,1023,43,319,688,259,37,11,2068,269,318,107,65,19325,51,124,17,1836,125,87,45,133,603,138,3057,74]
 
 # write your update damages function here:
+def update_damages(damages):
+    damages = []
+    redefinition = {"B":1000000, "M":1000000000}
+    for damage in damages_prev: 
+        if damage == "Damages not recorded":
+            damages.append(damage)
+        else:
+            mult = redefinition[damage[-1]]
+            damage = damage[:-1]
+            calc = int(mult * float(damage))
+            damages.append(calc)
+    return damages
 
+damages = update_damages(damages)
+print (damages)
+print(update_damages(damages))
 
 
 
